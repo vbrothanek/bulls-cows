@@ -6,7 +6,7 @@ def main():
     print(welcome())
     level = game_level()
     secret_number = generated_number(level)
-    print(f"GENERATED NUMBER {secret_number}")
+    # print(f"DEBUG GENERATED NUMBER {secret_number}")
     count_asking = 0
 
     while True:
