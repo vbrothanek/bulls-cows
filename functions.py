@@ -7,10 +7,10 @@ SIMPLE_DIVIDER = 60 * "-"
 def welcome():
     print(DUAL_DIVIDER, "Vitejte ve hre Bulls & Cows", DUAL_DIVIDER, sep="\n")
     print("""Pravidla hry:
-             Cilem hry je uhadnout nahodne vygenerovane 4 mistne cislo.
+             Cilem hry je uhadnout nahodne vygenerovane 4 mistne, 5 mistne nebo 6 mistne cislo.
 
              Pri kazdem zadani cisla je za potrbi zadat cele cislo. (1234)
-             Python na vase zadani dopovida Bulls x & Cows y, kdy misto x a y nahrazuje pocet uhodnutych cisel a
+             Program na vase zadani dopovida Bulls x & Cows y, kdy misto x a y nahrazuje pocet uhodnutych cisel a
              cisel na spravnych pozicich. 
              
              Bulls - Uhodnuta cisla ktere jsou zaroven na spravne pozici.
