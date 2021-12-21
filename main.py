@@ -23,7 +23,7 @@ def main():
             print(DUAL_DIVIDER)
             break
         else:
-            print(f"Bulls: {comparsion['Bulls']}, Cows: {comparsion['Cows']}")
+            print(f"Bulls: {comparsion['Bulls']} & Cows: {comparsion['Cows']}")
 
 
 
