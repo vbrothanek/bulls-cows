@@ -1,4 +1,5 @@
 from functions import *
+import re
 
 
 def main():
@@ -15,13 +16,21 @@ def main():
 
         user_guess = ""
 
-        while secret_number_loop != len(user_guess):
+        while secret_number_loop != len(user_guess) or user_guess.isalpha():
             user_guess = input(f"Prosim zadejte vas tip \n")
             # print(len(user_guess), ",", secret_number_loop)
-            if len(user_guess) < secret_number_loop:
-                print("Zadali jste prilis malo cisel.. Zadejte Vas tip znovu", SIMPLE_DIVIDER, sep="\n")
-            elif len(user_guess) > secret_number_loop:
-                print("Zadali jste prilis mnoho cisel.. Zadejte Vas tip znovu", SIMPLE_DIVIDER, sep="\n")
+
+            found_wrong_letter = re.search("[a-zA-Z!@#$%^&*()_+}{|';/.,]", user_guess)
+            if found_wrong_letter != None:
+                print("Vase zadani obsahuje pismena, zadejte Vas tip znova..", print(found_wrong_letter))
+                # continue
+            else:
+                if len(user_guess) < secret_number_loop:
+                    print("Zadali jste prilis malo znaku.. Zadejte Vas tip znova", SIMPLE_DIVIDER, sep="\n")
+                elif len(user_guess) > secret_number_loop:
+                    print("Zadali jste prilis mnoho znaku.. Zadejte Vas tip znova", SIMPLE_DIVIDER, sep="\n")
+
+
 
         count_asking += 1
         comparsion = number_comparsion(user_guess, secret_number)
