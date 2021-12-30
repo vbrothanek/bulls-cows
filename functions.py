@@ -37,22 +37,6 @@ def number_comparsion(user_input_str, secret_number):
     if not isinstance(user_input_str, str) or not isinstance(secret_number, str):
         raise ValueError("Wrong input")
 
-
-    while True:
-
-        try:
-            if len(user_input_str) == len(secret_number):
-                break
-        except:
-            # if len(user_input_str) != len(secret_number) or len(user_input_str) < 4:
-            #     raise ValueError("Zadali jste prilis mnoho nebo malo cisel.. Zadejte Vas tip znovu")
-            continue
-
-            # if len(user_input_str) != len(secret_number) or len(user_input_str) < 4:
-            #     print(f"Zadali jste prilis mnoho nebo malo cisel.. Zadejte Vas tip znovu")
-
-            # raise ValueError("Too long or too short!")
-
     bulls_count = 0
     cows_count = 0
 
