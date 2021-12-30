@@ -31,7 +31,6 @@ def main():
                     print("Zadali jste prilis mnoho znaku.. Zadejte Vas tip znova", SIMPLE_DIVIDER, sep="\n")
 
 
-
         count_asking += 1
         comparsion = number_comparsion(user_guess, secret_number)
 
