@@ -1,5 +1,6 @@
 from functions import *
 
+# TEST PY FILE FOR TESTING THE OUTPUTS
 
 result = number_comparsion("8765", "3456")
 
