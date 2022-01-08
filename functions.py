@@ -1,36 +1,29 @@
+# from main import *
 import random
 
-DUAL_DIVIDER = 60 * "="
-SIMPLE_DIVIDER = 60 * "-"
+DUAL_DIVIDER = 70 * "="
+SIMPLE_DIVIDER = 70 * "-"
 
 
 def welcome():
-    print(DUAL_DIVIDER, "Vitejte ve hre Bulls & Cows", DUAL_DIVIDER, sep="\n")
+    print(DUAL_DIVIDER, "Vítejte ve hře Bulls & Cows!", DUAL_DIVIDER, sep="\n")
     print("""Pravidla hry:
-             Cilem hry je uhadnout nahodne vygenerovane 4 mistne, 5 mistne nebo 6 mistne cislo.
+    Cílem hry je odhalit náhodně vygenerované čtyřmístné, 
+    pětimístné nebo šestimístné číslo.
 
-             Pri kazdem zadani cisla je za potrbi zadat cele cislo. (1234)
-             Program na vase zadani dopovida Bulls x & Cows y, kdy misto x a y nahrazuje pocet uhodnutych cisel a
-             cisel na spravnych pozicich. 
-             
-             Bulls - Uhodnuta cisla ktere jsou zaroven na spravne pozici.
-             Cows - Uhodnute cislo ktere je na nespravne pozici.
+    Při každém pokusu je nutné zadat číslo, které se skládá z počtu
+    číslic dle vybrané úrovně.
+    Program na Vaše zadání vyhodnotí Bulls (x) & Cows (y), 
+    kdy x a y nahrazuje počet uhodnutých číslic a
+    číslic na správné pozici. 
+     
+    Bulls - Počet uhodnutých číslic, které jsou na správném místě.
+    Cows - Počet uhodnutých číslic, které jsou zvoleny dobře,
+           ale na nesprávné pozici.
     """)
     print(SIMPLE_DIVIDER)
 
     return ""
-
-
-
-def user_guess_input(user_guess):
-    user_input_str = str(user_guess)
-
-    if len(user_input_str) > len(generated_number()) or len(user_input_str) < len(generated_number()):
-        print("Prilis mnoho nebo malo cisel..")
-        exit()
-
-    else:
-        return user_input_str
 
 
 def number_comparsion(user_input_str, secret_number):
@@ -60,13 +53,16 @@ def number_comparsion(user_input_str, secret_number):
 
 
 def game_level():
-    number_of_numbers = int(input("Zadejte s kolika cisly chcete hrat: 4,5,6: \n"))
+    number_of_numbers = 0
+    levels = [4, 5, 6]
 
-    if number_of_numbers < 4 or number_of_numbers > 6:
-        print("Spatne zadane zadane udaje! :-( ")
-        exit()
-    else:
-        return number_of_numbers
+    while number_of_numbers not in levels:
+        number_of_numbers = int(input("Zadejte úroveň hry: 4,5,6: \n"))
+
+        if number_of_numbers < 4 or number_of_numbers > 6:
+            print("Špatně zadané údaje! Prosím, znovu zvolte úroveň hry.")
+        else:
+            return number_of_numbers
 
 
 
@@ -80,6 +76,18 @@ def generated_number(level):
 
 
     return "".join(random_list)
+
+# def new_game():
+#     answers = ["Y", "N"]
+#     new_game_answer = ""
+#     while new_game_answer not in answers:
+#         new_game_answer = input('Pro novou hru zadejte "Y", pro ukonceni hry zadjete "N".').upper()
+#
+#         if new_game_answer == "Y":
+#             main()
+#         elif new_game_answer == "N":
+#             print("Dekujeme za hru :-)")
+#             exit()
 
 
 

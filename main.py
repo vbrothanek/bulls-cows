@@ -1,5 +1,4 @@
 from functions import *
-import re
 
 
 def main():
@@ -16,19 +15,20 @@ def main():
 
         user_guess = ""
 
-        while secret_number_loop != len(user_guess) or user_guess.isalpha():
-            user_guess = input(f"Prosim zadejte vas tip \n")
-            # print(len(user_guess), ",", secret_number_loop)
+        while not user_guess.isnumeric() or secret_number_loop != len(user_guess):
+            user_guess = input(f"Prosím zadejte Váš tip. \n")
 
-            found_wrong_letter = re.search("[a-zA-Z!@#$%^&*()_+}{|';/.,]", user_guess)
-            if found_wrong_letter != None:
-                print("Vase zadani obsahuje pismena, zadejte Vas tip znova..")
-                # continue
-            else:
+            if secret_number_loop == len(user_guess) and user_guess.isnumeric():
+                break
+            elif user_guess.isalpha():
+                print("Vaše zadání obsahuje písmena, zadejte Váš tip znovu.", SIMPLE_DIVIDER, sep="\n")
+            elif secret_number_loop != len(user_guess):
                 if len(user_guess) < secret_number_loop:
-                    print("Zadali jste prilis malo znaku.. Zadejte Vas tip znova", SIMPLE_DIVIDER, sep="\n")
+                    print("Zadali jste příliš málo znaků. Zadejte Váš tip znovu.", SIMPLE_DIVIDER, sep="\n")
                 elif len(user_guess) > secret_number_loop:
-                    print("Zadali jste prilis mnoho znaku.. Zadejte Vas tip znova", SIMPLE_DIVIDER, sep="\n")
+                    print("Zadali jste příliš mnoho znaků. Zadejte Váš tip znovu.", SIMPLE_DIVIDER, sep="\n")
+            else:
+                print("Chyba v zadání. Zadejte Váš tip znovu.", SIMPLE_DIVIDER, sep="\n")
 
 
         count_asking += 1
@@ -39,13 +39,16 @@ def main():
             "Cows": 0
         }:
             print(DUAL_DIVIDER)
-            print(f"Dobra hra! Zvladnul jsi to na {count_asking} pokus :-)")
+            print(f"Výborná práce! Zvládli jste to na {count_asking} platných pokusů :-)")
             print(DUAL_DIVIDER)
+            # new_game()
             break
         else:
             print(SIMPLE_DIVIDER)
             print(f"Bulls: {comparsion['Bulls']} & Cows: {comparsion['Cows']}")
             print(SIMPLE_DIVIDER)
+
+
 
 if __name__ == "__main__":
     main()
