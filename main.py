@@ -22,7 +22,7 @@ def main():
 
             found_wrong_letter = re.search("[a-zA-Z!@#$%^&*()_+}{|';/.,]", user_guess)
             if found_wrong_letter != None:
-                print("Vase zadani obsahuje pismena, zadejte Vas tip znova..", print(found_wrong_letter))
+                print("Vase zadani obsahuje pismena, zadejte Vas tip znova..")
                 # continue
             else:
                 if len(user_guess) < secret_number_loop:
